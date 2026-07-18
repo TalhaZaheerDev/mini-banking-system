@@ -13,4 +13,8 @@ public class Account {
     AccountType accountType;
     Customer customer;
     Status status;
+
+    String getId() {
+        return accountNumber;
+    }
 }
