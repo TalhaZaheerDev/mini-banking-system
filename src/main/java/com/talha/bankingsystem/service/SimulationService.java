@@ -68,6 +68,7 @@ public class SimulationService {
 
         for(int i=0;i<count;i++){
 
+            System.out.println(accounts.size());
             Account account =
                     accounts.get(random.nextInt(accounts.size()));
 

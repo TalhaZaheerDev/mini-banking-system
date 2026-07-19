@@ -11,10 +11,18 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class BankService {
-   Repository<Account> accountRepository= new AccountRepository();
-   Repository<Customer> customerRepository= new CustomerRepository();
-   Repository<Transaction> transactionRepository= new TransactionRepository();
+    private final AccountRepository accountRepository;
+    private final CustomerRepository customerRepository;
+    private final TransactionRepository transactionRepository;
 
+    public BankService(AccountRepository accountRepository,
+                       CustomerRepository customerRepository,
+                       TransactionRepository transactionRepository) {
+
+        this.accountRepository = accountRepository;
+        this.customerRepository = customerRepository;
+        this.transactionRepository = transactionRepository;
+    }
    /// ///////////////////////////
    /// ///////////////////////////
    /// Customer Handling /////////
@@ -87,7 +95,7 @@ public class BankService {
     }
 
     public void withdraw(String accountId, long amount) {
-        if (amount <= 0) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Withdraw amount must be greater than zero.");
         }
 
@@ -141,6 +149,8 @@ public class BankService {
                 TransactionType.TRANSFER,
                 TransactionStatus.SUCCESS
         );
+
+        transactionRepository.save(transaction);
     }
 
 
