@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Account {
+public class Account implements ModelClass {
     String accountNumber;
     Long accountBalance;
     AccountType accountType;
     Customer customer;
     Status status;
 
-    String getId() {
+    public String getId() {
         return accountNumber;
     }
 }
