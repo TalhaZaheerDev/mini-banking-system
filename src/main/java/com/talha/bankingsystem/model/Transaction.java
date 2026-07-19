@@ -16,7 +16,7 @@ public class Transaction implements ModelClass{
     long amount;
     LocalDateTime timestamp;
     TransactionType transactionType;
-    Status transactionStatus;
+    TransactionStatus transactionStatus;
 
     @Override
     public String getId() {

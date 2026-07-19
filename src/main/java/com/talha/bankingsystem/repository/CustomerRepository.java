@@ -13,19 +13,19 @@ public class CustomerRepository extends InMemoryRepository<Customer> {
         this.accountRepository = accountRepository;
     }
 
-    List<Customer> findByEmail(String email){
+    public List<Customer> findByEmail(String email){
         return findAll().stream()
                 .filter(customer -> customer.getCustomerEmail().equals(email))
                 .toList();
     }
 
-    List<Customer> findByPhone(String Phone){
+    public List<Customer> findByPhone(String Phone){
         return findAll().stream()
                 .filter(customer -> customer.getCustomerPhone().equals(Phone))
                 .toList();
     }
 
-    List<Customer> findByName(String name){
+    public List<Customer> findByName(String name){
         return findAll().stream()
                 .filter(customer -> customer.getCustomerName().equals(name))
                 .toList();
