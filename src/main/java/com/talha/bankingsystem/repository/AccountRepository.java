@@ -16,10 +16,10 @@ public class AccountRepository extends InMemoryRepository<Account>{
     }
 
 
-    public Optional<Account> findByCustomerId(String customerId){
+    public List<Account> findByCustomerId(String customerId){
         return findAll().stream()
                 .filter(account -> account.getCustomer().getCustomerId().equals(customerId))
-                .findFirst();
+                .toList();
     }
 
     public List<Account> findByAccountType(AccountType accountType){
