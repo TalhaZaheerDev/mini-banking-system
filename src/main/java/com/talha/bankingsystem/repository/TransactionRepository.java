@@ -56,5 +56,15 @@ public class TransactionRepository extends InMemoryRepository<Transaction> {
     }
 
 
+    public List<Transaction> findByTransactionType(TransactionType type) {
+        return  findAll().stream()
+                .filter(transaction -> transaction.getTransactionType() == type)
+                .toList();
+    }
 
+    public List<Transaction> findByTransactionStatus(TransactionStatus status) {
+        return findAll().stream()
+                .filter(transaction -> transaction.getTransactionStatus() == status)
+                .toList();
+    }
 }

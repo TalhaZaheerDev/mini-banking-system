@@ -2,16 +2,10 @@ package com.talha.bankingsystem.repository;
 
 import com.talha.bankingsystem.model.Customer;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 public class CustomerRepository extends InMemoryRepository<Customer> {
-    private final AccountRepository accountRepository;
-
-    public CustomerRepository(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
+    AccountRepository accountRepository = new AccountRepository();
 
     public List<Customer> findByEmail(String email){
         return findAll().stream()
